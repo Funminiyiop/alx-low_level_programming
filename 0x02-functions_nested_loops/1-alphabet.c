@@ -2,7 +2,9 @@
 
 /**
  * main - Entry point
- * Description: prints alphabet in lowercase,
+ *
+ * Description: 'prints alphabet in lowercase'
+ *
  * Return: Always returns 0
  */
 
