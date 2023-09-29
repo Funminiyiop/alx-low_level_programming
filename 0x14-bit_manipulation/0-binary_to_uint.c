@@ -5,7 +5,6 @@
  * @b: binary
  * Return: unsigned int
  */
-
 unsigned int binary_to_uint(const char *b)
 {
 	int len = 0, i;
