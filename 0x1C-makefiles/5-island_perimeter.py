@@ -5,31 +5,31 @@ gets Island Perimeter
 
 def island_perimeter(grid):
     """actual function"""
-    count = 0
-    if grid:
-        glen = len(grid)
-        rlen = len(grid[0])
-        for idx1, row in enumerate(grid):
-            for idx2, spot in enumerate(row):
-                if spot:
-                    if idx1 == 0:
-                        count += 1
-                    else:
-                        if not grid[idx1 - 1][idx2]:
-                            count += 1
-                    if idx1 >= glen - 1:
-                        count += 1
-                    else:
-                        if not grid[idx1 + 1][idx2]:
-                            count += 1
-                    if idx2 == 0:
-                        count += 1
-                    else:
-                        if not row[idx2 - 1]:
-                            count += 1
-                    if idx2 >= rlen - 1:
-                        count += 1
-                    else:
-                        if not row[idx2 + 1]:
-                            count += 1
-    return count
+    p = 0
+    for row in range(len(grid)):
+        for col in range(len(grid[0])):
+            if grid[row][col] == 1:
+                if row == 0 or grid[row - 1][col] == 0:
+                    p += 1  # top
+                if row == (len(grid) - 1) or grid[row + 1][col] == 0:
+                    p += 1  # bottom
+                if col == 0 or grid[row][col - 1] == 0:
+                    p += 1  # left
+                if col == (len(grid[0]) - 1) or grid[row][col + 1] == 0:
+                    p += 1  # right
+    return p
+
+
+# Method for rectangular island only, no odd shapes
+#    maxWidth = 0
+#    length = 0
+#    for i in range(len(grid)):
+#        width = 0
+#        for j in range(len(grid[0])):
+#            if grid[i][j] == 1:
+#                width += 1
+#        if width:
+#            length += 1
+#        if width > maxWidth:
+#            maxWidth = width
+#    return ((maxWidth + length) * 2)
