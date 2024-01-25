@@ -1,20 +1,35 @@
 #!/usr/bin/python3
 """
-Module gets Island Perimeter
+gets Island Perimeter
 """
 
 def island_perimeter(grid):
-    """Calculate perimeter of grid where "1" is found"""
-    p = 0
-    for row in range(len(grid)):
-        for col in range(len(grid[0])):
-            if grid[row][col] == 1:
-                if row == 0 or grid[row - 1][col] == 0:
-                    p += 1  # top
-                if row == (len(grid) - 1) or grid[row + 1][col] == 0:
-                    p += 1  # bottom
-                if col == 0 or grid[row][col - 1] == 0:
-                    p += 1  # left
-                if col == (len(grid[0]) - 1) or grid[row][col + 1] == 0:
-                    p += 1  # right
-    return p
+    """actual function"""
+    count = 0
+    if grid:
+        glen = len(grid)
+        rlen = len(grid[0])
+        for idx1, row in enumerate(grid):
+            for idx2, spot in enumerate(row):
+                if spot:
+                    if idx1 == 0:
+                        count += 1
+                    else:
+                        if not grid[idx1 - 1][idx2]:
+                            count += 1
+                    if idx1 >= glen - 1:
+                        count += 1
+                    else:
+                        if not grid[idx1 + 1][idx2]:
+                            count += 1
+                    if idx2 == 0:
+                        count += 1
+                    else:
+                        if not row[idx2 - 1]:
+                            count += 1
+                    if idx2 >= rlen - 1:
+                        count += 1
+                    else:
+                        if not row[idx2 + 1]:
+                            count += 1
+    return count
