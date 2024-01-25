@@ -4,8 +4,10 @@
 
 def island_perimeter(grid):
     """ island_perimeter:
-        Args: grid (list) = list of integers
-        Return: the perimeter of island described in grid
+        Args: 
+            grid (list) = A list of list of integers representing an island.
+        Return: 
+            the perimeter of island described in grid
     """
 
     p = 0
